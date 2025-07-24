@@ -8,33 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 225 25% 98%;
+    --foreground: 220 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 213 88% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 213 100% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 25% 92%;
+    --secondary-foreground: 220 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 25% 94%;
+    --muted-foreground: 220 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 213 88% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 145 85% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --emergency: 10 100% 55%;
+    --emergency-foreground: 0 0% 100%;
+
+    --border: 215 25% 88%;
+    --input: 215 25% 88%;
+    --ring: 213 88% 45%;
+
+    /* Aviation-inspired gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 88% 45%), hsl(213 100% 65%));
+    --gradient-sky: linear-gradient(180deg, hsl(213 88% 45%), hsl(195 100% 75%));
+    --gradient-emergency: linear-gradient(135deg, hsl(10 100% 55%), hsl(25 100% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(145 85% 45%), hsl(160 85% 55%));
+    
+    /* Shadows with aviation theme */
+    --shadow-drone: 0 10px 40px -15px hsl(213 88% 45% / 0.4);
+    --shadow-emergency: 0 10px 30px -10px hsl(10 100% 55% / 0.5);
+    --shadow-elevation: 0 20px 60px -15px hsl(220 25% 25% / 0.2);
+    
+    /* Animation curves */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 

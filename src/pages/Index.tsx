@@ -1,14 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import RoleSelector from "@/components/RoleSelector";
+import PilotDashboard from "@/components/PilotDashboard";
+import ObserverDashboard from "@/components/ObserverDashboard";
+
+type UserRole = 'pilot' | 'observer' | null;
 
 const Index = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [userRole, setUserRole] = useState<UserRole>(null);
+
+  const handleRoleSelect = (role: 'pilot' | 'observer') => {
+    setUserRole(role);
+  };
+
+  const handleBackToSelection = () => {
+    setUserRole(null);
+  };
+
+  if (userRole === 'pilot') {
+    return <PilotDashboard onBack={handleBackToSelection} />;
+  }
+
+  if (userRole === 'observer') {
+    return <ObserverDashboard onBack={handleBackToSelection} />;
+  }
+
+  return <RoleSelector onRoleSelect={handleRoleSelect} />;
 };
 
 export default Index;
