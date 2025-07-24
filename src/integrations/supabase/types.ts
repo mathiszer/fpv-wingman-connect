@@ -14,7 +14,261 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      flight_events: {
+        Row: {
+          created_at: string
+          description: string | null
+          difficulty_level: string | null
+          end_time: string
+          flight_date: string
+          flight_type: string | null
+          id: string
+          latitude: number
+          location_name: string
+          longitude: number
+          pilot_id: string
+          required_observers: number | null
+          special_requirements: string | null
+          start_time: string
+          status: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          difficulty_level?: string | null
+          end_time: string
+          flight_date: string
+          flight_type?: string | null
+          id?: string
+          latitude: number
+          location_name: string
+          longitude: number
+          pilot_id: string
+          required_observers?: number | null
+          special_requirements?: string | null
+          start_time: string
+          status?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          difficulty_level?: string | null
+          end_time?: string
+          flight_date?: string
+          flight_type?: string | null
+          id?: string
+          latitude?: number
+          location_name?: string
+          longitude?: number
+          pilot_id?: string
+          required_observers?: number | null
+          special_requirements?: string | null
+          start_time?: string
+          status?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          content: string
+          created_at: string
+          event_id: string
+          id: string
+          sender_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          event_id: string
+          id?: string
+          sender_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          event_id?: string
+          id?: string
+          sender_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "flight_events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      observer_requests: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          message: string | null
+          observer_id: string
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          message?: string | null
+          observer_id: string
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          message?: string | null
+          observer_id?: string
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "observer_requests_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "flight_events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          available: boolean | null
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          display_name: string | null
+          experience_level: string | null
+          id: string
+          preferred_zones: string[] | null
+          rating: number | null
+          role: string
+          total_reviews: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          available?: boolean | null
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          experience_level?: string | null
+          id?: string
+          preferred_zones?: string[] | null
+          rating?: number | null
+          role: string
+          total_reviews?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          available?: boolean | null
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          experience_level?: string | null
+          id?: string
+          preferred_zones?: string[] | null
+          rating?: number | null
+          role?: string
+          total_reviews?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          comment: string | null
+          created_at: string
+          event_id: string
+          id: string
+          rating: number
+          reviewed_id: string
+          reviewer_id: string
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          event_id: string
+          id?: string
+          rating: number
+          reviewed_id: string
+          reviewer_id: string
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          event_id?: string
+          id?: string
+          rating?: number
+          reviewed_id?: string
+          reviewer_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reviews_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "flight_events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sos_alerts: {
+        Row: {
+          created_at: string
+          id: string
+          latitude: number
+          location_name: string | null
+          longitude: number
+          message: string | null
+          pilot_id: string
+          radius_km: number | null
+          resolved_at: string | null
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          latitude: number
+          location_name?: string | null
+          longitude: number
+          message?: string | null
+          pilot_id: string
+          radius_km?: number | null
+          resolved_at?: string | null
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          latitude?: number
+          location_name?: string | null
+          longitude?: number
+          message?: string | null
+          pilot_id?: string
+          radius_km?: number | null
+          resolved_at?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
